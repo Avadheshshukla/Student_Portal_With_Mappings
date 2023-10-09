@@ -103,7 +103,7 @@ ___
 <!-- Usage -->
 ## Usage
 - Access the application at `http://localhost:8080`.
-- Use the provided API endpoints to manage your User Management.
+- Use the provided API endpoints to manage your Student Portal.
 
 ### Controller🎮:
 - It consists of a class named APIController which basically controls the flow of data.
