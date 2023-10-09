@@ -70,7 +70,7 @@ ___
          @ManyToMany
        -> Set<Student> studentSet;
 
- ### 1 -> Laptop Model
+ ### 3 -> Laptop Model
     Attribute's
        ->  private String ID;
        -> private String name;
@@ -79,7 +79,7 @@ ___
          @OneToOne
        -> private Student student;
 
-### 2 -> Book Model
+### 4 -> Book Model
     Attributes's
       -> private String ID;
       -> private String title;
@@ -90,7 +90,7 @@ ___
          @ManyToOne
       -> private Student student;
 
-### 2 -> Address Model
+### 5 -> Address Model
     Attributes's
       -> private Long addressId;
       -> private String landmark;
