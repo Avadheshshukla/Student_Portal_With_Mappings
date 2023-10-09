@@ -1,4 +1,4 @@
-# <h1 align = "center"> 🎓Ecommerce App🎓 </h1>
+# <h1 align = "center"> 🎓Student_Portal_With_Mappings🎓 </h1>
 ___ 
 <p align="center">
 <a href="Java url">
@@ -18,7 +18,7 @@ ___
 
 <!-- Project Description -->
 ## Overview 🪟
-<p align="center">This project, named "Ecommerce App," is a robust Spring Boot application designed for managing user data efficiently. It provides a set of API endpoints that allows you to manage User,Product, Address and Order to perform CRUD operations, and apply the specified validations. The application will use MySQL as the database for simplicity and we have use validation as well.
+<p align="center">This project, named "Student_Portal_With_Mappings" is a robust Spring Boot application designed for managing user data efficiently. It provides a set of API endpoints with mappings that allows you to manage Student, Laptop, Course, Book and Address to perform CRUD operations, and apply the specified validations. The application will use MySQL as the database for simplicity and we have use validation as well.
 </p>
 
 <!-- Table of Contents -->
@@ -44,64 +44,81 @@ ___
 <!-- Model --->
 
 ## Models Key Features🔑
-### 1 -> User Model
+### 1 -> Student Model
     Attribute's
-       -> d:integer
-       -> name:string
-       -> email:string
-       -> password:string
-       -> phoneNumber:string
+       ->private String ID;
+       -> private String name;
+       -> private String age;
+       -> private String phoneNumber;
+       -> private String branch;
+       -> private String department;
+
+         @OneToOne
+       -> private Address address;
+
+         @OneToMany
+       -> Set<course> courseSet;
  
+
+### 2 -> Course Model
+    Attributes's
+       -> private String ID;
+       -> private String title;
+       -> private String description;
+       -> private String duration;
+
+         @ManyToMany
+       -> Set<Student> studentSet;
+
+ ### 1 -> Laptop Model
+    Attribute's
+       ->  private String ID;
+       -> private String name;
+       -> private String brand;
+       -> private Integer price;
+         @OneToOne
+       -> private Student student;
+
+### 2 -> Book Model
+    Attributes's
+      -> private String ID;
+      -> private String title;
+      -> private String author;
+      -> private String description;
+      -> private String price;
+
+         @ManyToOne
+      -> private Student student;
 
 ### 2 -> Address Model
     Attributes's
-       ->  id:integer    
-       -> name:string
-       -> landmark:string
-       -> phoneNumber:string
-       -> zipcode:string
-       -> state:string
-       -> UserID : foreign key mapping
+      -> private Long addressId;
+      -> private String landmark;
+      -> private String zipcode;
+      -> private String district;
+      -> private String state;
+      ->private String country;
 
- ### 1 -> Product Model
-    Attribute's
-       -> id:integer 
-       -> name:string
-       -> price:integer
-       -> description:string
-       -> category:string
-       -> brand:string
-
-### 2 -> Order Model
-    Attributes's
-      -> id:integer
-      -> userID:integer (foreign key mapping)
-      -> productID:integer(foreign key mapping)
-      -> addressID:integer(foreign key mapping)
-      -> productQuantity:integer
 
 <!-- Usage -->
 ## Usage
-- Access the application at `http://localhost:8081`.
+- Access the application at `http://localhost:8080`.
 - Use the provided API endpoints to manage your User Management.
 
 ### Controller🎮:
 - It consists of a class named APIController which basically controls the flow of data.
+- It consists mapping like OneToOne , ManyToOne, OneToMany and ManyTomany.
 - @RestController annotation is used to make the APIController as a controller layer.
 - We perform the CRUD operations such as @PostMapping , @GetMapping , @PutMapping , @DeleteMapping.
 
 ### Endpoint API Reference :
 
-         -> Add users
-         -> Add products
-         -> Add Address
-         -> Place an order (Create Order) using userId,     productId, addressId
-         -> Get order by order id
-         -> Get user by userid
-         -> Get all products
-         -> Get products based on category (query params) 
-         -> delete products based on product id.
- 
+    Performed CRUD operation in every Model :- 
+      - Post
+      - Get
+      - Put
+      - Delete
+    
 
  <!-- Acknowledgments -->
 ## Acknowledgments
