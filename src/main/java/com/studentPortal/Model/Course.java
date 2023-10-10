@@ -18,7 +18,4 @@ public class Course {
     private String description;
     private String duration;
 
-    @ManyToMany
-     @JoinColumn(name = "fk_student_id")
-    Set<Student> studentSet;
 }
